@@ -36,7 +36,7 @@
       margin-bottom: 25px;
       font-size: 22px;
       text-align: center;
-      color: #000000;
+      color: #1f1f2e;
     }
 
     .contact-card input,
@@ -46,7 +46,7 @@
       margin-bottom: 16px;
       border: none;
       border-radius: 10px;
-      background: #ffffff;
+      background: #f1f3f5;
       font-size: 16px;
       transition: 0.2s;
     }
@@ -95,25 +95,26 @@
   <form class="contact-card" onsubmit="sendToWhatsApp(event)">
     <h2>راسلنا عبر واتساب</h2>
     <input type="text" id="name" placeholder="اسمك الكامل" required />
-    <input type="na" id="na" placeholder="الهاتف" required />
+    <input type="tel" id="phone" placeholder="رقم الهاتف" required />
     <textarea id="message" placeholder="اكتب رسالتك هنا..." rows="5" required></textarea>
     <button type="submit">إرسال عبر واتساب</button>
   </form>
 
   <script>
-    function sendToWhatsApp(e) {
-      e.preventDefault();
-      const name = document.getElementById("name").value;
-      const na = document.getElementById("na").value;
-      const message = document.getElementById("message").value;
+  function sendToWhatsApp(e) {
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const phoneNumber = document.getElementById("phone").value;
+    const message = document.getElementById("message").value;
 
-      const phone = "201150164400";
-      const text = `👋 مرحبًا، لدي رسالة جديدة من الموقع:\n\n🧑 الاسم: ${name}\n📧 الهاتف: ${email}\n💬 الرسالة: ${message}`;
-      const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+    const whatsappReceiver = "201150164400"; // ← رقمك الجديد بصيغة دولية
+    const text = `👋 مرحبًا، لدي رسالة جديدة من موقع مدرسة القيم النبيلة:\n\n🧑 الاسم: ${name}\n📞 رقم الهاتف: ${phoneNumber}\n💬 الرسالة: ${message}`;
+    const url = `https://wa.me/${whatsappReceiver}?text=${encodeURIComponent(text)}`;
 
-      window.open(url, "_blank");
-    }
-  </script>
+    window.open(url, "_blank");
+  }
+</script>
+
 
 </body>
 </html>
