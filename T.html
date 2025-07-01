@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تواصل معنا</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(135deg, #005eff, #f7f9fc);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      padding: 30px 25px;
+      width: 100%;
+      max-width: 500px;
+      transition: 0.3s;
+    }
+
+    .contact-card h2 {
+      margin-bottom: 25px;
+      font-size: 22px;
+      text-align: center;
+      color: #000000;
+    }
+
+    .contact-card input,
+    .contact-card textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 16px;
+      border: none;
+      border-radius: 10px;
+      background: #ffffff;
+      font-size: 16px;
+      transition: 0.2s;
+    }
+
+    .contact-card input:focus,
+    .contact-card textarea:focus {
+      outline: none;
+      background: #fff;
+      box-shadow: 0 0 0 2px #25d36680;
+    }
+
+    .contact-card button {
+      width: 100%;
+      background: #25d366;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      padding: 14px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact-card button:hover {
+      background: #1aa855;
+    }
+
+    @media (max-width: 480px) {
+      .contact-card {
+        padding: 25px 18px;
+      }
+
+      .contact-card h2 {
+        font-size: 20px;
+      }
+
+      .contact-card button {
+        font-size: 16px;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <form class="contact-card" onsubmit="sendToWhatsApp(event)">
+    <h2>راسلنا عبر واتساب</h2>
+    <input type="text" id="name" placeholder="اسمك الكامل" required />
+    <input type="na" id="na" placeholder="الهاتف" required />
+    <textarea id="message" placeholder="اكتب رسالتك هنا..." rows="5" required></textarea>
+    <button type="submit">إرسال عبر واتساب</button>
+  </form>
+
+  <script>
+    function sendToWhatsApp(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const na = document.getElementById("na").value;
+      const message = document.getElementById("message").value;
+
+      const phone = "201150164400";
+      const text = `👋 مرحبًا، لدي رسالة جديدة من الموقع:\n\n🧑 الاسم: ${name}\n📧 الهاتف: ${email}\n💬 الرسالة: ${message}`;
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+
+      window.open(url, "_blank");
+    }
+  </script>
+
+</body>
+</html>
