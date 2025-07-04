@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تسجيل الدخول الي موقع مدرسة القيم النبيلة</title>
+  <script src="l.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(-45deg, #2193b0, #6dd5ed, #bde1f3, #2193b0);
+      background-size: 400% 400%;
+      animation: gradientBG 8s ease infinite;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .login-container {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 300px;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px;
+      width: 100%;
+      background-color: #2193b0;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #176682;
+    }
+
+    #error-message {
+      color: red;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>تسجيل الدخول الي موقع المدرسة</h2>
+    <h3>اسم المستخدم و الباسورد حاصل ضرب 2 * 1011 مفيش امان اكتر من كده🤣 </h3>
+    <input type="text" id="username" placeholder="اسم المستخدم" />
+    <input type="password" id="password" placeholder="الباسورد" />
+    <button onclick="login()">دخول</button>
+    <p id="error-message"></p>
+  </div>
+
+
+
+</body>
+</html>

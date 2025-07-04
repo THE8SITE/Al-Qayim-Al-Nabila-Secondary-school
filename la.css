@@ -1,0 +1,262 @@
+*{
+    margin: 0px;
+    padding: 0px;
+
+}
+body{
+    background-image: linear-gradient(to bottom, #4facfe 0%, #00f2fe 100%);
+    
+}
+.logo{
+width: 150px;
+height: 150px;
+background: url(li2.png);
+background-size: contain;
+border-radius: 50%;
+margin-right: 83%;
+}
+.font{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-family: "Amiri", serif;
+    font-size: 3em;
+    font-weight: 900;
+    color: white;
+}
+.parent{
+    margin-top: 250px;
+margin-bottom: 300px;
+width: 100%;
+display: grid;
+grid-template-columns: repeat(4,auto);
+gap: 40px ;
+justify-content: center;
+}
+.parent div{
+    width: 200px;
+    height: 250px;
+    
+}
+.div1{
+    background-image: url(1.webp);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+.div2{
+    background-image: url(2.webp);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+
+}
+.div3{
+    background-image: url(3.webp);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+.div4{   
+    background-image: url(4.webp);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+.div5{
+    background-image: url(5.webp);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+.div6{
+    background-image: url(6.webp);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+
+}
+.div7{
+    background-image: url(7.webp);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+.div8{
+    background-image: url(8.webp);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+.div9{
+    background-image: url(9.webp);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+.div10{
+    background-image: url(10.webp);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+.div11{
+    background-image: url(11.webp);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+.div12{
+    background-image: url(12.webp);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+.div13{
+    background-image: url(13.webp);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+.div14{
+    background-image: url(14.webp);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+.div15{
+    background-image: url(15.webp);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+.div16{
+    background-image: url(16.webp);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+}
+.parent a{
+    text-decoration: none;
+    text-align: center;
+    color: #000;
+}
+.menu a{
+color: #ffffff;
+    text-decoration: none;
+    font-size: 2em;
+    text-align: center;
+}
+.menu{
+display: flex;
+position: absolute;
+top: 200px;
+right: 22%;
+gap: 50px;
+}
+.menu2{
+    background-color: blueviolet;
+    width:150px;
+    height: 40px;
+    padding: 20px ;
+text-align: center;
+}
+.menu1{
+padding: 20px;
+}
+.menu3{
+    padding: 20px ;
+}
+.det a{
+    display: block;
+    padding: 10px;
+    background-color: blueviolet;
+    font-size: 2em;
+}
+.det summary{
+    font-size: 2em;
+    color: white;
+}
+h2{
+    white-space: pre-line;
+}
+.f{
+    font-size: 20px;
+}
+.logo:hover{
+    background: url(li.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: 1s;
+}
+.parent a:hover{
+    color: #ffffff;
+    transition: 1s;
+    
+}
+.menu a:hover{
+    font-size: 40px;
+    color: #000;
+    transition: 1s;
+}
+@media (max-width:600px){
+.logo{
+   margin-right:64%;
+   
+}
+.parent{
+grid-template-columns: repeat(1,auto);
+gap: 25px ;
+justify-content: center;
+}
+.menu{
+justify-content: center;
+
+    right: 0%;
+    gap: 50px;
+    }
+    .font{
+        font-size: 2em;
+    }
+    .menu a{
+            font-size: 1.5em;
+}
+.menu2{
+    background-color: blueviolet;
+    width:100px;
+    height: 40px;
+    padding: 0px ;
+text-align: center;
+}
+.menu1{
+padding: 0px;
+}
+.menu3{
+    padding:0px ;
+}
+}
+
+
+@media (max-width:800px){
+    .logo{
+        margin-right:65%;
+        
+     }
+    .parent{
+        grid-template-columns: repeat(2,auto);
+        gap: 25px ;
+        justify-content: center;
+        }
+
+
+
+}
+footer {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
