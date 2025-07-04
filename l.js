@@ -24,6 +24,6 @@ function login() {
   if (users[username] && users[username] === password) {
     window.location.href = "school.html";
   } else {
-    errorMessage.textContent = "❌ غلط يا عبيط/ة 🤣 اسم المستخدم و الباسورد 2022.";
+    errorMessage.textContent = " غلط يا عبيط/ة 🤣 اسم المستخدم و الباسورد2022.";
   }
 }
