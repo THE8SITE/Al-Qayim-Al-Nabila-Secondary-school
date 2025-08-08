@@ -1,198 +1,343 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="school.css">
-    <title>الصفحه الرئيسية مدرسة القيم النبيلة الثانوية</title>
-    <meta name="description" content=" مدرسة القيم النبيلة الثانوية - أخبار، صور، أنشطة والمزيد.">
-    <link href="school.jpg" type="imge/x-icon" rel="icon" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الصفحة الرئيسية مدرسة القيم النبيلة الثانوية</title>
+<meta name="description" content="مدرسة القيم النبيلة الثانوية - أخبار، صور، أنشطة والمزيد.">
+<link href="school.jpg" type="image/x-icon" rel="icon">
+<style>
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: #ffffff;
+    color: #000;
+    transition: background 0.5s, color 0.5s;
+}
+
+/* الوضع الليلي */
+body.dark-mode {
+    background: #121212;
+    color: #f5f5f5;
+}
+
+body.dark-mode .n,
+body.dark-mode .news {
+    background: #1e1e1e;
+    color: #f5f5f5;
+}
+
+body.dark-mode nav {
+    background: rgba(30, 30, 30, 0.95);
+}
+
+body.dark-mode nav a {
+    color: #ddd;
+}
+
+body.dark-mode footer {
+    background: rgba(20, 20, 20, 0.95);
+    color: #ccc;
+}
+
+body.dark-mode img {
+    filter: brightness(0.9);
+}
+
+/* زر الوضع الليلي */
+.toggle-btn {
+    background: linear-gradient(45deg, #ff9800, #ff5722);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    animation: pulse 1.5s infinite;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.toggle-btn:hover {
+    transform: scale(1.08);
+    background: linear-gradient(45deg, #ff5722, #ff9800);
+}
+body.dark-mode .toggle-btn {
+    background: linear-gradient(45deg, #0044ff, #0044ff);
+}
+body.dark-mode .toggle-btn:hover {
+    background: linear-gradient(45deg, #0044ff, #0044ff);
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+.toggle-btn span {
+    display: inline-block;
+    transition: transform 0.5s ease;
+}
+.toggle-btn.clicked span {
+    transform: rotate(360deg);
+}
+
+/* الهيدر */
+header {
+    background: linear-gradient(90deg, #000, #000);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5em;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* شريط التنقل */
+nav {
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: all 0.4s ease;
+}
+nav a {
+    float: right;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 12px 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.4s ease;
+    font-size: 14px;
+}
+nav a:hover {
+    background: linear-gradient(90deg, #000, #000);
+    color: #fff;
+    transform: scale(1.08);
+    border-radius: 6px;
+    box-shadow: 0 0 6px rgba(255,255,255,0.5);
+}
+
+/* المحتوى */
+main {
+    padding: 15px;
+    margin-bottom: 80px;
+    flex: 1;
+}
+
+/* الكروت */
+.n, .news {
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.n:hover, .news:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+/* الفوتر */
+footer {
+    background: rgba(0,0,0,0.9);
+    color: white;
+    text-align: center;
+    padding: 12px;
+    width: 100%;
+    font-size: 13px;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.4);
+    position: static;
+    margin-top: 20px;
+}
+
+/* للشاشات الصغيرة */
+@media (max-width: 768px) {
+    header {
+        font-size: 1.3em;
+        padding: 15px;
+    }
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav a {
+        display: inline-block;
+        float: none;
+        padding: 10px;
+        font-size: 13px;
+    }
+    main {
+        padding: 10px;
+    }
+    .n, .news {
+        padding: 12px;
+    }
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <h1><img src="school.jpg" alt="صورة المدرسة" width="20%"></h1>
-        <h3>مدرسة القيم النبيلة الثانوية</h3>
-        <h3> مدير المدرسة : هاني عيد محمد </h3>
-        <p>نحو تعليم متميز لمستقبل مشرق</p>
-    </header>
+<header>
+    <h1><img src="school.jpg" alt="صورة المدرسة" width="20%"></h1>
+    <h3>مدرسة القيم النبيلة الثانوية</h3>
+    <h3>مدير المدرسة : هاني عيد محمد</h3>
+    <p>نحو تعليم متميز لمستقبل مشرق</p>
 
     <nav>
         <a href="#contact">اتصل بنا</a>
         <a href="#about">عن المدرسة</a>
         <a href="#news">أخبار المدرسة</a>
         <a href="#home">الرئيسية</a>
-        <a href="#school photo">صور المدرسة</a>
-        <a href="#school pr">الطابور المدرسي</a>
-        <a href="#n">المكتبة</a>
+        <a href="#photos">صور المدرسة</a>
+        <a href="#prayer">الطابور المدرسي</a>
+        <a href="#library">المكتبة</a>
     </nav>
+</header>
 
-    <main>
-        <section id="home">
-            <h1>مرحباً بكم في موقع مدرسة القيم النبيلة</h1>
-            <p>نرحب بكم في الموقع الرسمي لمدرسة القيم النبيلة الثانوية </p>
-        </section>
+<main>
+<section id="home">
+    <button class="toggle-btn" onclick="toggleMode(this)">
+        <span>🌙</span> تغيير الوضع
+    </button>
+    <h1>مرحباً بكم في موقع مدرسة القيم النبيلة</h1>
+    <p>نرحب بكم في الموقع الرسمي لمدرسة القيم النبيلة الثانوية</p>
+</section>
 
-        <section id="news">
+<section id="news">
+    <h2>أخبار المدرسة</h2>
+    <div class="news">
+        <h3>فوز فريق المدرسة في مسابقة سيكودراما عن التدخين</h3>
+        <p>حصل فريق المدرسة على المركز الأول في المسابقة على مستوى الإدارة.</p>
+        <h2><a href="A.html" target="_blank">الاخبار</a></h2>
+        <p>تاريخ النشر: 21 نوفمبر 2024</p>
+    </div>
+</section>
 
-            <h2>أخبار المدرسة</h2>
-            
-            <div class="news">
+<section id="about">
+    <h2>عن المدرسة</h2>
+    <div class="news">
+        <h3>تأسست مدرسة القيم النبيلة عام 2022 وتضم أكثر من 300 طالب وطالبة.</h3>
+        <h3>رؤية المدرسة: إعداد أجيال واعية بالعلم، مواكبة للتطورات التكنولوجية.</h3>
+    </div>
+</section>
 
-                <h3>فوز فريق المدرسة في مسابقة سيكودراما عن التدخين</h3>
-                <p>حصل فريق المدرسة على المركز الأول في المسابقة على مستوى الادارة.</p>
-                <h2><a href="A.html"target="_blank"><div class="div2"><p class="font"> الاخبار</p></a></h2>
-                <p>تاريخ النشر: 21 نوفمبر 2024</p>
+<section id="photos">
+    <h2>صور المدرسة</h2>
+    <div class="news">
+        <img src="صور2.jpg" width="25%">
+        <img src="صور3.jpg" width="25%">
+        <img src="صور4.jpg" width="25%">
+        <img src="صور5.jpg" width="25%">
+        <img src="صور7.jpg" width="25%">
+        <img src="صور8.jpg" width="25%">
+        <img src="صور9.jpg" width="25%">
+        <img src="صور10.jpg" width="25%">
+        <img src="صور المدرسة1.jpg" width="25%">
+        <img src="صور6.jpg" width="25%">
+        <p>تاريخ النشر: 14 ابريل 2025</p>
+    </div>
+</section>
 
+<section id="prayer">
+    <h2>الطابور المدرسي</h2>
+    <div class="news">
+        <img src="الطابور المدرسي3.jpg" width="25%">
+        <img src="الطابور المدرسي 2.jpg" width="25%">
+        <img src="الطابور المدرسي1.jpg" width="25%">
+        <p>تاريخ النشر: 14 ابريل 2025</p>
+    </div>
+</section>
 
-            </div>
+<section id="library">
+    <h2>المكتبة</h2>
+    <div class="n">
+        <h2><a href="la.html" target="_blank">المكتبة</a></h2>
+    </div>
+</section>
 
-        <section id="about">
+<section id="review1">
+    <h2>مراجعة الصف الأول</h2>
+    <div class="n">
+        <h2><a href="M1.html" target="_blank">المراجعات</a></h2>
+    </div>
+</section>
 
-            <h2>عن المدرسة</h2>
-            <div class="news">
-            <h3>تأسست مدرسة القيم النبيلة عام 2022 وتضم اكثر من 300 طالب و طالبة .</h3>
-            <h3>رؤية المدرسة: اعداد اجيال واعية بالعلم , مواكبة للتطورات التكنولوجية </h3>
-            
-        </div>
+<section id="review2">
+    <h2>مراجعة الصف الثاني</h2>
+    <div class="n">
+        <h2><a href="M2.html" target="_blank">المراجعات</a></h2>
+    </div>
+</section>
 
-        </section>
+<section id="assessment1">
+    <h2>الصف الأول الثانوي - التقييمات</h2>
+    <div class="n">
+        <h2><a href="https://elearnningcontent.blob.core.windows.net/elearnningcontent/content/2025/Classroom_and_home_assessments_and_performances/Secondry1.html">التقييمات</a></h2>
+    </div>
+</section>
 
-        <section id="school photo">
-            <h2>صور المدرسة</h2>
-            
-            <div class="news">
-                
-                <img src="صور2.jpg" alt="" width="25%">
-                <img src="صور3.jpg" alt="" width="25%">
-                <img src="صور4.jpg" alt="" width="25%">
-                <img src="صور5.jpg" alt="" width="25%">
-                <img src="صور7.jpg" alt="" width="25%">
-                <img src="صور8.jpg" alt="" width="25%">
-                <img src="صور9.jpg" alt="" width="25%">
-                <img src="صور10.jpg" alt="" width="25%">
-                <img src="صور المدرسة1.jpg" alt="" width="25%">
-                <img src="صور6.jpg" alt="" width="25%">
+<section id="assessment2">
+    <h2>الصف الثاني الثانوي - التقييمات</h2>
+    <div class="n">
+        <h2><a href="https://elearnningcontent.blob.core.windows.net/elearnningcontent/content/2025/Classroom_and_home_assessments_and_performances/Secondry2.html">التقييمات</a></h2>
+    </div>
+</section>
 
-                <p>تاريخ النشر: 14 ابريل 2025</p>
-            </div>
-          
-        </section>
+<section id="staff">
+    <h2>هيئة التدريس</h2>
+    <div class="n">
+        <h2><a href="H.html" target="_blank">هيئة التدريس</a></h2>
+    </div>
+</section>
 
-        <section id="school pr">
-            <h2>الطابور المدرسي</h2>
-            
-            <div class="news">
-                <img src="الطابور المدرسي3.jpg" alt="" width="25%">
-                <img src="الطابور المدرسي 2.jpg" alt="" width="25%">
-                <img src="الطابور المدرسي1.jpg" alt="" width="25%">
-                <img src="" alt="" width="25%">
-                <img src="" alt="" width="25%">
-                <img src="" alt="" width="25%">
+<section id="contact">
+    <h2>اتصل بنا</h2>
+    <div class="news">
+        <ul>
+            <li>الهاتف: <a href="tel:+201150164400">01150164400</a></li>
+            <li>صفحة المدرسة: <a href="https://www.facebook.com/nv.high.school?mibextid=ZbWKwL">مدرسة القيم النبيلة</a></li>
+            <li>العنوان: الناصرية - العياط - الجيزة</li>
+            <li>واتساب: <a href="T.html" target="_blank">للتواصل</a></li>
+        </ul>
+    </div>
+    <h3>مواعيد الدوام</h3>
+    <div class="news">
+        <h3>من الأحد إلى الخميس</h3>
+        <h3>من الساعة 8 صباحًا حتى الساعة 12 ظهرًا</h3>
+    </div>
+</section>
+</main>
 
-                <p>تاريخ النشر: 14 ابريل 2025</p>
-            </div>
-          
-        </section>
-        <section id="n">
-            <h2>المكتبة</h2>
-            <div class="n">
-            <h2><a href="la.html"target="_blank"><div class="div2"><p class="font">المكتبة</p></a></h2>
-         </div>
-            </div>
-        </section>
+<footer>
+    <p>جميع الحقوق محفوظة 2025 @ تم الصنع بواسطة &copy; <a href="https://the8website.github.io/mo_yaser/" target="_blank">MO_YASER</a></p>
+</footer>
 
-        <section id="n">
-            <h2>مراجعة الصف الاول</h2>
-            <div class="n">
-            <h2><a href="M1.html"target="_blank"><div class="div2"><p class="font">المراجعات</p></a></h2>
-         </div>
-
-        </section>
-
-        <section id="n">
-            <h2>مراجعة الصف الثاني</h2>
-            <div class="n">
-            <h2><a href="M2.html"target="_blank"><div class="div2"><p class="font">المراجعات</p></a></h2>
-         </div>
-
-
-            </section>
-            <h2>الصف الاول الثانوي التقييمات</h2> 
-            <div class="n">
-            <h2><a href="https://elearnningcontent.blob.core.windows.net/elearnningcontent/content/2025/Classroom_and_home_assessments_and_performances/Secondry1.html">  التقييمات</a>
-            </h2>    
-
-            </div>
-          
-        </section>
-
-        <section id="school photo">
-            <h2>الصف الثاني الثانوي التقييمات</h2>
-            
-            <div class="n">
-            <h2><a href="https://elearnningcontent.blob.core.windows.net/elearnningcontent/content/2025/Classroom_and_home_assessments_and_performances/Secondry2.html">  التقييمات</a>
-            </h2>    
-
-            </div>
-          
-        </section>
-
-       
-          <section id="about">
-            <h2>هيئة التدريس</h2>
-            <div class="n">
-             <h2><a href="H.html"target="_blank"><div class="div2"><p class="font">هيئة التدريس</p></a></h2>
-         </div>
-          </section>
-
-        <section id="contact">
-            <h2>اتصل بنا</h2>
-            <div class="news">
-               <ul>
-                        <li>الهاتف : <a href="tel:+201150164400"></i> 01150164400</a></li>
-                        <li> صفحة المدرسة : <a href="https://www.facebook.com/nv.high.school?mibextid=ZbWKwL">مدرسة القيم النبيلة  </a> </li>
-                        <li> العنوان : الناصرية - العياط - الجيزة</li>
-                        <li>واتساب : <a href="T.html"target="_blank"><div class="div2">للتواصل</a></li>
-
-                    </ul>
-
-        </div>
-
-            <section id="contact">
-            <h3>مواعيد الدوام</h3>
-            <div class="news">
-            <h3>مواعيد الدوام</h3>
-            <h3>من الاحد الي الخميس</h3>
-            <h3>من الساعة الثامنة صباحا حتي الساعة الثانية عشر ظهرا</h3>
-            
-    </main>
-    
-    <footer>
-        <p>  جميع الحقوق محفوظة 2025 @ تم الصنع بواسطة &copy; <a href="https://the8website.github.io/mo_yaser/"> MO_YASER </a>
-        </p>
-    </footer>
-
-     <script>
-    let navbar = document.querySelector("nav");
-    let lastScrollY = window.scrollY;
-
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > lastScrollY && window.scrollY > 80) {
-        navbar.classList.add("hidden");
-      } else {
-        navbar.classList.remove("hidden");
-      }
-
-      if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-      }
-
-      lastScrollY = window.scrollY;
-    });
-  </script>
-
-
+<script>
+function toggleMode(btn) {
+    document.body.classList.toggle("dark-mode");
+    const icon = btn.querySelector("span");
+    if (document.body.classList.contains("dark-mode")) {
+        icon.textContent = "☀️";
+    } else {
+        icon.textContent = "🌙";
+    }
+    btn.classList.add("clicked");
+    setTimeout(() => btn.classList.remove("clicked"), 500);
+}
+</script>
 </body>
 </html>

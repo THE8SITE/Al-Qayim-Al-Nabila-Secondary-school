@@ -251,12 +251,15 @@ padding: 0px;
 
 
 }
+/* الفوتر */
 footer {
-            background-color: #000000;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+    background: rgba(0,0,0,0.9);
+    color: white;
+    text-align: center;
+    padding: 12px;
+    width: 100%;
+    font-size: 13px;
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.4);
+    position: static; /* إلغاء التثبيت */
+    margin-top: 20px; /* مسافة بسيطة عن المحتوى */
+}
