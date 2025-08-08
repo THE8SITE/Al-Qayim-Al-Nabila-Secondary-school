@@ -1,129 +1,333 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="la.css">
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <title>مكتبة مدرسة القيم النبيلة الثانوية</title>
-    <link href="school.jpg" type="imge/x-icon" rel="icon" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مكتبة مدرسة القيم النبيلة الثانوية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
+  <style>
+    /* أساسي */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #fff;
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+    body.dark {
+      background: #121212;
+      color: #eee;
+    }
 
+    /* شعار */
+    .logo {
+      width: 150px;
+      height: 150px;
+      margin: 30px auto 10px;
+      background: url('li2.png') center/contain no-repeat;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .logo:hover {
+      background-image: url('li.png');
+      transform: rotate(10deg) scale(1.05);
+    }
+
+    /* العنوان */
+    h1 {
+      text-align: center;
+      font-weight: 900;
+      font-size: 2.8rem;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+      user-select: none;
+    }
+
+    /* القائمة */
+    nav.menu {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+    nav.menu a {
+      text-decoration: none;
+      background: #8a2be2;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      transition: background 0.3s ease, transform 0.3s ease;
+      user-select: none;
+      display: inline-block;
+    }
+    nav.menu a:hover {
+      background: #6f1dbf;
+      transform: scale(1.1);
+      color: #fff;
+    }
+
+    /* فئات ضمن تفاصيل */
+    details > summary {
+      cursor: pointer;
+      padding: 10px 25px;
+      border-radius: 12px;
+      background: #8a2be2;
+      color: white;
+      font-size: 1.2rem;
+      user-select: none;
+      list-style: none;
+    }
+    details[open] > summary {
+      background: #6f1dbf;
+    }
+    details > div {
+      display: flex;
+      gap: 12px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    details > div a {
+      background: #ccc;
+      color: #222;
+      padding: 7px 15px;
+      border-radius: 10px;
+      font-size: 1rem;
+      user-select: none;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    body.dark details > div a {
+      background: #444;
+      color: #eee;
+    }
+    details > div a:hover {
+      background: #8a2be2;
+      color: white;
+    }
+
+    /* شبكة الكتب */
+    .books {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+      gap: 25px;
+      width: 90%;
+      margin: 0 auto 60px;
+    }
+    .books a {
+      color: inherit;
+      text-decoration: none;
+      user-select: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      background: #fafafa;
+    }
+    body.dark .books a {
+      background: #222;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.8);
+    }
+    .books a:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      color: #8a2be2;
+    }
+    .books div.cover {
+      height: 250px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 15px 15px 0 0;
+      flex-shrink: 0;
+    }
+    .books h2 {
+      padding: 15px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    /* حركة زرار الداكن */
+    .toggle-btn {
+      position: fixed;
+      top: 25px;
+      right: 25px;
+      background: linear-gradient(45deg, #ff9800, #ff5722);
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-size: 1.1rem;
+      padding: 12px 28px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background 0.3s ease, transform 0.3s ease;
+      user-select: none;
+      animation: pulse 1.6s infinite;
+      z-index: 999;
+    }
+    .toggle-btn:hover {
+      background: linear-gradient(45deg, #ff5722, #ff9800);
+      transform: scale(1.1);
+    }
+    .toggle-btn span {
+      display: inline-block;
+      transition: transform 0.6s ease;
+    }
+    .toggle-btn.clicked span {
+      transform: rotate(360deg);
+    }
+    body.dark .toggle-btn {
+      background: linear-gradient(45deg, #0044ff, #0066ff);
+    }
+    body.dark .toggle-btn:hover {
+      background: linear-gradient(45deg, #0066ff, #0044ff);
+    }
+
+    /* الفوتر */
+    footer {
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 14px;
+      background: rgba(0, 0, 0, 0.9);
+      color: white;
+      user-select: none;
+      box-shadow: 0 -3px 10px rgba(0,0,0,0.5);
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* استجابة */
+    @media (max-width: 650px) {
+      nav.menu {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      .books {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+    /* حركة نبض للزر */
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+  </style>
 </head>
-<body dir="rtl">
-<!--section1-->
-<div class="logo"></div>
-<h1 class="font">المكتبة</h1>
-<!--sectoin2-->
-<div class="menu">
-<div class="menu1"><a href="">كتاب الأسبوع</a></div>
-<div class="menu2"><a href="">أشهر الكتب</a></div>
-<div class="menu3">
-<details class="det"> <summary>فئات</summary>
+<body>
+  <div class="logo" aria-label="شعار المكتبة"></div>
+  <h1>المكتبة</h1>
 
-    <div>
-    <a href="">علمي</a>
-    <a href="">ثقافي</a>
-    <a href="">ديني</a>
- </div>
+  <div class="books">
+    <a href="https://drive.google.com/file/d/1ADEFW59R2zY---c82S8BdpjDob_U0SAj/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+      <div class="cover" style="background-image:url('1.webp');" aria-label="غلاف كتاب القرءان الكريم"></div>
+      <h2>القرءان الكريم</h2>
+    </a>
+    <a href="https://drive.google.com/file/d/1VlJTX1I2z1LWz8w6-wu16MF_Fe6qABmT/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+      <div class="cover" style="background-image:url('2.webp');" aria-label="غلاف كتاب تعلم الإنجليزية للمبتدئين"></div>
+      <h2>تعلم الإنجليزية للمبتدئين</h2>
+    </a>
+    <a href="https://drive.google.com/file/d/1YcDEb13wOPaUQGpT2VPUNErd7T1tW6ai/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+      <div class="cover" style="background-image:url('3.webp');" aria-label="غلاف كتاب فاتتنى صلاة"></div>
+      <h2>فاتتنى صلاة</h2>
+    </a>
+    <a href="https://drive.google.com/file/d/1-UlV0Cad7CBn2MYA3kud3LTBTK7An1Ct/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+      <div class="cover" style="background-image:url('4.webp');" aria-label="غلاف كتاب 6000 كلمة هامة في إتقان الإنجليزية"></div>
+      <h2>6000 كلمة هامة فى اتقان الانجليزية</h2>
+    </a>
+    <a href="https://drive.google.com/file/d/1Eqa9MURyqh4J6L5p2kjYmaHLVNXQnlnT/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+            <div class="cover" style="background-image:url('4.webp');" aria-label="غلاف كتاب قصص الانبياء للشيخ الشعراوي"></div>
+            <h2>قصص الانبياء للكاتب الشيخ الشعراوى</h2>
+        </a>
+        <a href="https://drive.google.com/file/d/1HLymhPwYYQZSVTKgeQeqy9uvffAYwIF5/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+            <div class="cover" style="background-image:url('4.webp');" aria-label="غلاف كتاب الفلك"></div>
+            <h2>الفلك</h2>
+        </a>
+        <a href="https://drive.google.com/file/d/18ResTUPufJsk9ss-ZGPoRv9hOSYgYfVC/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+            <div class="cover" style="background-image:url('4.webp');" aria-label="غلاف كتاب الكيمياء في حياتنا"></div>
+            <h2>الكيمياء في حياتنا</h2>
+        </a>
+        <a href="https://drive.google.com/file/d/1cDNdm4uueESDfcGYFx5tR71YVUqWd1cI/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+            <div class="cover" style="background-image:url('4.webp');" aria-label="غلاف كتاب كيف تصبح مصمم جرافيك"></div>
+            <h2>كيف تصبح مصمم جرافيك</h2>
+        </a>
+        <a href="https://drive.google.com/file/d/17k1vCzr6uExZ3nuxdTbNGWET-vPWu3HU/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+            <div class="cover" style="background-image:url('4.webp');" aria-label="غلاف كتاب أروع كتاب لتعلم اللغة الإنجليزية"></div>
+            <h2 class="f">
+                أروع كتاب لتعلم اللغة الانجليزية
+                من الصفر حتى الإحتراف
+            </h2>
+        </a>
+        <a href="https://drive.google.com/file/d/1kCVarbN4_6cTOy-sLe-fBTU6MvoZMdtm/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <div class="cover" style="background-image:url('4.webp');" aria-label="غلاف كتاب كروية الأرض"></div>
+            <h2>كروية الأرض</h2>
+        </a>
+        <a href="https://drive.google.com/file/d/1TC-W7dCbbCfZiJurTDNlNL9g0Q7lpwAu/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+            <div class="cover" style="background-image:url('4.webp');" aria-label="غلاف كتاب رحلتى من الشك الى الايمان"></div>
+            <h2>رحلتى من الشك الى الايمان</h2>
+        </a>
+        <a href="https://drive.google.com/file/d/10OCelqwdt3IMc4G2Bz0FGc6YxvibG_qQ/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+            <div class="cover" style="background-image:url('4.webp');" aria-label="غلاف كتاب أساسيات الفيزياء الحديثة"></div>
+            <h2>أساسيات الفيزياء الحديثة</h2>
+        </a>
+        <a href="https://drive.google.com/file/d/1ApxP1997ron5HsQhqKCkFvx2_DYHmlP0/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <div class="cover" style="background-image:url('4.webp');" aria-label="غلاف كتاب حقيقة الفيزياء"></div>
+            <h2>حقيقة الفيزياء</h2>
+        </a>
+        <a href="https://drive.google.com/file/d/1wdlFqNFBR5BvXQC9WEOPDemBWjqblqVO/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+            <div class="cover" style="background-image:url('4.webp');" aria-label="غلاف كتاب الثقافة العربية"></div>
+            <h2>الثقافة العربية</h2>
+        </a>
+        <a href="https://drive.google.com/file/d/1caWPRceSTGSN6c4Ul59Vjbtx9mCY44nv/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <div class="cover" style="background-image:url('4.webp');" aria-label="غلاف كتاب تاريخ مصر"></div>
+            <h2>تاريخ مصر</h2>
+        </a>
+        <a href="https://drive.google.com/file/d/1FykwKwspmqdta3NrRGINZp60RaYGmrnz/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+            <div class="cover" style="background-image:url('4.webp');" aria-label="غلاف كتاب الجغرافيا التاريخية"></div>
+            <h2>الجغرافيا التاريخية</h2>
+        </a>
+  </div>
 
-</details>
-</div>
-</div>
+  <button class="toggle-btn" onclick="toggleMode(this)" aria-label="تبديل الوضع الليلي">
+    <span>🌙</span> تبديل الوضع
+  </button>
 
-<div class="parent">
-<a href="https://drive.google.com/file/d/1ADEFW59R2zY---c82S8BdpjDob_U0SAj/view?usp=sharing" target="_blank">
-    <div class="div1"></div>
-    <br>
-    <h2 class="text">القرءان الكريم</h2>
-</a>
-<a href="https://drive.google.com/file/d/1VlJTX1I2z1LWz8w6-wu16MF_Fe6qABmT/view?usp=drive_link" target="_blank">
-    <div class="div2"></div>
-    <br>
-    <h2>تعلم الإنجليزية للمبتدئين </h2>
-</a>
-<a href="https://drive.google.com/file/d/1YcDEb13wOPaUQGpT2VPUNErd7T1tW6ai/view?usp=drive_link" target="_blank">
-    <div class="div3"></div>
-    <br>
-    <h2>فاتتنى صلاة </h2>
-</a>
-<a href="https://drive.google.com/file/d/1-UlV0Cad7CBn2MYA3kud3LTBTK7An1Ct/view?usp=drive_link" target="_blank">
-    <div class="div4"></div>
-    <br>
-    <h2>6000 كلمة هامة فى 
-        اتقان الانجليزية </h2>
-</a>
-<a href="https://drive.google.com/file/d/1Eqa9MURyqh4J6L5p2kjYmaHLVNXQnlnT/view?usp=drive_link" target="_blank">
-    <div class="div5"></div>
-    <br>
-    <h2>قصص الانبياء
-         للكاتب الشيخ الشعراوى </h2>
-</a>
-<a href="https://drive.google.com/file/d/1HLymhPwYYQZSVTKgeQeqy9uvffAYwIF5/view?usp=drive_link" target="_blank">
-    <div class="div6"></div>
-    <br>
-    <h2>الفلك</h2>
-    
-</a>
-<a href="https://drive.google.com/file/d/18ResTUPufJsk9ss-ZGPoRv9hOSYgYfVC/view?usp=drive_link" target="_blank">
-    <div class="div7"></div>
-    <br>
-    <h2>الكيمياء في حياتنا  </h2>
-</a>
-<a href="https://drive.google.com/file/d/1cDNdm4uueESDfcGYFx5tR71YVUqWd1cI/view?usp=drive_link" target="_blank">
-    <div class="div8"></div>
-    <br>
-    <h2>كيف تصبح مصمم جرافيك</h2>
-</a>
-<a href="https://drive.google.com/file/d/17k1vCzr6uExZ3nuxdTbNGWET-vPWu3HU/view?usp=drive_link" target="_blank">
-    <div class="div9"></div>
-    <br>
-    <h2 class="f">أروع كتاب لتعلم اللغة الانجليزية
-        من الصفر حتى الإحتراف </h2>
-</a>
-<a href="https://drive.google.com/file/d/1kCVarbN4_6cTOy-sLe-fBTU6MvoZMdtm/view?usp=sharing" target="_blank">
-    <div class="div10"></div>
-    <br>
-    <h2>كروية الأرض</h2>
-</a>
-<a href="https://drive.google.com/file/d/1TC-W7dCbbCfZiJurTDNlNL9g0Q7lpwAu/view?usp=drive_link" target="_blank">
-    <div class="div11"></div>
-    <br>
-    <h2>رحلتى من الشك الى الايمان </h2>
+  <footer>
+    جميع الحقوق محفوظة 2025 @ تم الصنع بواسطة &copy;
+    <a href="https://the8website.github.io/mo_yaser/" target="_blank" rel="noopener noreferrer">MO_YASER</a>
+  </footer>
 
-</a>
-<a href="https://drive.google.com/file/d/10OCelqwdt3IMc4G2Bz0FGc6YxvibG_qQ/view?usp=drive_link" target="_blank">
-    <div class="div12"></div>
-    <br>
-    <h2> أساسيات الفيزياء الحديثة </h2>
-</a>
-
-<a href="https://drive.google.com/file/d/1ApxP1997ron5HsQhqKCkFvx2_DYHmlP0/view?usp=sharing" target="_blank">
-    <div class="div13"></div>
-    <br>
-    <h2>حقيقة الفيزياء</h2>
-</a>
-
-<a href="https://drive.google.com/file/d/1wdlFqNFBR5BvXQC9WEOPDemBWjqblqVO/view?usp=drive_link" target="_blank">
-    <div class="div14"></div>
-    <br>
-    <h2> الثقافة العربية</h2>
-</a>
-<a href="https://drive.google.com/file/d/1caWPRceSTGSN6c4Ul59Vjbtx9mCY44nv/view?usp=sharing" target="_blank">
-    <div class="div15"></div>
-    <br>
-    <h2>تاريخ مصر </h2>
-</a>
-<a href="https://drive.google.com/file/d/1FykwKwspmqdta3NrRGINZp60RaYGmrnz/view?usp=drive_link" target="_blank">
-    <div class="div16"></div>
-    <br>
-    <h2>الجغرافيا التاريخية</h2>
-</a>
-</div>
- <footer>
-        <p>  جميع الحقوق محفوظة 2025 @ تم الصنع بواسطة &copy; <a href="https://the8website.github.io/mo_yaser/"> MO_YASER </a>
-        </p>
-    </footer>
+  <script>
+    function toggleMode(btn) {
+      document.body.classList.toggle('dark');
+      const icon = btn.querySelector('span');
+      if (document.body.classList.contains('dark')) {
+        icon.textContent = '☀️';
+      } else {
+        icon.textContent = '🌙';
+      }
+      btn.classList.add('clicked');
+      setTimeout(() => btn.classList.remove('clicked'), 600);
+    }
+  </script>
 </body>
 </html>

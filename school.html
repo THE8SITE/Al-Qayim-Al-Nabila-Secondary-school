@@ -89,30 +89,28 @@ body.dark-mode .toggle-btn:hover {
     transform: rotate(360deg);
 }
 
-/* الهيدر */
+/* الهيدر + النافبار كتلة واحدة */
 header {
     background: linear-gradient(90deg, #000, #000);
     color: white;
-    padding: 20px;
     text-align: center;
     font-size: 1.5em;
     letter-spacing: 1px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-}
-
-/* شريط التنقل */
-nav {
-    background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(8px);
-    overflow: hidden;
     position: sticky;
     top: 0;
-    z-index: 100;
-    transition: all 0.4s ease;
+    z-index: 200;
 }
-nav a {
-    float: right;
-    display: block;
+
+header nav {
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+header nav a {
     color: white;
     text-align: center;
     padding: 12px 15px;
@@ -121,7 +119,8 @@ nav a {
     transition: all 0.4s ease;
     font-size: 14px;
 }
-nav a:hover {
+
+header nav a:hover {
     background: linear-gradient(90deg, #000, #000);
     color: #fff;
     transform: scale(1.08);
@@ -132,7 +131,7 @@ nav a:hover {
 /* المحتوى */
 main {
     padding: 15px;
-    margin-bottom: 80px;
+    padding-top: 10px; /* مسافة أمان تحت الهيدر */
     flex: 1;
 }
 
@@ -156,32 +155,24 @@ footer {
     color: white;
     text-align: center;
     padding: 12px;
-    width: 100%;
     font-size: 13px;
     box-shadow: 0 -2px 12px rgba(0,0,0,0.4);
-    position: static;
-    margin-top: 20px;
+    margin-top: auto;
 }
 
 /* للشاشات الصغيرة */
 @media (max-width: 768px) {
     header {
-        font-size: 1.3em;
-        padding: 15px;
+        font-size: 1.2em;
+        padding: 8px;
     }
-    nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    nav a {
-        display: inline-block;
-        float: none;
-        padding: 10px;
+    header nav a {
+        padding: 8px 10px;
         font-size: 13px;
     }
     main {
         padding: 10px;
+        padding-top: 8px;
     }
     .n, .news {
         padding: 12px;
