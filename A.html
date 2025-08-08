@@ -5,62 +5,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>اخبار مدرسة القيم النبيلة الثانوية</title>
-    <link href="school/school.jpg" type="imge/x-icon" rel="icon" />
+    <link href="school.jpg" type="imge/x-icon" rel="icon" />
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 100;
-            padding: 100;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        header {
-            background-color: #000000;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            background-color: #070431;
-            overflow: hidden;
-        }
-        nav a {
-            float: right;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        nav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-        main {
-            padding: 20px;
-        }
-        footer {
-            background-color: #000000;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        .n{
-            border: 1px solid #000000;
-            padding: 15px;
-            margin-bottom: 20px;
-            background-color: rgb(255, 255, 255);
-        }   
-            .news {
-            border: 1px solid #ffffff;
-            padding: 15px;
-            margin-bottom: 20px;
-            background-color: rgb(255, 255, 255);
-        }
+         body {
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      color: #000000;
+    }
+
+    /* الهيدر */
+    header {
+      background: linear-gradient(90deg, #000000, #222222);
+      color: white;
+      padding: 30px;
+      text-align: center;
+      font-size: 2em;
+      letter-spacing: 2px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      animation: fadeInDown 1s ease;
+    }
+
+    /* شريط التنقل */
+    nav {
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      overflow: hidden;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      animation: fadeInDown 1.2s ease;
+      transition: all 0.4s ease;
+    }
+
+    /* شكل الـNavbar لما يكون مصغر */
+    nav.scrolled {
+      padding: 5px 0;
+      background: rgba(0,0,0,0.95);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    /* إخفاء الـNavbar عند النزول */
+    nav.hidden {
+      transform: translateY(-100%);
+    }
+
+    /* الروابط */
+    nav a {
+      float: right;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.4s ease;
+    }
+
+    nav a:hover {
+      background: linear-gradient(90deg, #222, #555);
+      color: #fff;
+      transform: scale(1.12);
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
+
+    /* المحتوى */
+    main {
+      padding: 30px;
+      animation: fadeIn 1.2s ease;
+      margin-bottom: 100px;
+    }
+
+    /* الكروت */
+    .n, .news {
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 20px;
+      background: white;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .n:hover, .news:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+    }
+
+    /* الفوتر */
+    footer {
+      background: rgba(0,0,0,0.9);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      font-size: 15px;
+      box-shadow: 0 -2px 20px rgba(0,0,0,0.4);
+    }
+
+    /* أنيميشن */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* للشاشات الصغيرة */
+    @media (max-width: 768px) {
+      nav a {
+        float: none;
+        text-align: center;
+        padding: 12px;
+        display: block;
+      }
+    }
 
     </style>
 </head>

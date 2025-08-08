@@ -11,8 +11,8 @@
 <body>
     <header>
         <h1><img src="school.jpg" alt="صورة المدرسة" width="20%"></h1>
-        <h1>مدرسة القيم النبيلة الثانوية</h1>
-        <h1> مدير المدرسة : هاني عيد محمد </h1>
+        <h3>مدرسة القيم النبيلة الثانوية</h3>
+        <h3> مدير المدرسة : هاني عيد محمد </h3>
         <p>نحو تعليم متميز لمستقبل مشرق</p>
     </header>
 
@@ -159,11 +159,11 @@
         </div>
 
             <section id="contact">
+            <h3>مواعيد الدوام</h3>
             <div class="news">
             <h3>مواعيد الدوام</h3>
             <h3>من الاحد الي الخميس</h3>
             <h3>من الساعة الثامنة صباحا حتي الساعة الثانية عشر ظهرا</h3>
-            <h3>.</h3>
             
     </main>
     
@@ -171,6 +171,27 @@
         <p>  جميع الحقوق محفوظة 2025 @ تم الصنع بواسطة &copy; <a href="https://the8website.github.io/mo_yaser/"> MO_YASER </a>
         </p>
     </footer>
+
+     <script>
+    let navbar = document.querySelector("nav");
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 80) {
+        navbar.classList.add("hidden");
+      } else {
+        navbar.classList.remove("hidden");
+      }
+
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+
+      lastScrollY = window.scrollY;
+    });
+  </script>
 
 
 </body>
