@@ -1,18 +1,21 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اخبار مدرسة القيم النبيلة الثانوية</title>
-    <link href="school.jpg" type="imge/x-icon" rel="icon" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اخبار مدرسة القيم النبيلة الثانوية</title>
+<link href="school.jpg" type="image/x-icon" rel="icon" />
 
-    <style>
+<style>
 body {
     font-family: 'Cairo', sans-serif;
     background: #ffffff;
     color: #000;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     transition: background 0.5s, color 0.5s;
+    overflow-x: hidden;
 }
 
 /* الوضع الليلي */
@@ -20,68 +23,57 @@ body.dark-mode {
     background: #121212;
     color: #f5f5f5;
 }
-
-body.dark-mode .n,
-body.dark-mode .news {
-    background: #1e1e1e;
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p {
     color: #f5f5f5;
 }
-
 body.dark-mode nav {
     background: rgba(30, 30, 30, 0.95);
 }
-
 body.dark-mode nav a {
     color: #ddd;
 }
-
 body.dark-mode footer {
     background: rgba(20, 20, 20, 0.95);
     color: #ccc;
 }
-
 body.dark-mode img {
     filter: brightness(0.9);
 }
 
-/* زر الوضع الليلي مع حركة */
+/* زر الوضع الليلي */
 .toggle-btn {
     background: linear-gradient(45deg, #ff9800, #ff5722);
     border: none;
     color: white;
-    padding: 10px 20px;
+    padding: 8px 15px;
     font-size: 1em;
     border-radius: 25px;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    animation: pulse 1.5s infinite; /* حركة نبض */
+    animation: pulse 1.5s infinite;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
-
 .toggle-btn:hover {
-    transform: scale(1.08);
+    transform: scale(1.05);
     background: linear-gradient(45deg, #ff5722, #ff9800);
 }
-
-/* لون الزر في الوضع الليلي */
 body.dark-mode .toggle-btn {
     background: linear-gradient(45deg, #03a9f4, #2196f3);
 }
 body.dark-mode .toggle-btn:hover {
     background: linear-gradient(45deg, #2196f3, #03a9f4);
 }
-
-/* حركة النبض */
 @keyframes pulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.08); }
     100% { transform: scale(1); }
 }
-
-/* أيقونة الزر تتحرك دوران عند الضغط */
 .toggle-btn span {
     display: inline-block;
     transition: transform 0.5s ease;
@@ -90,65 +82,49 @@ body.dark-mode .toggle-btn:hover {
     transform: rotate(360deg);
 }
 
-
 /* الهيدر */
 header {
     background: linear-gradient(90deg, #000, #000);
     color: white;
-    padding: 20px;
+    padding: 15px;
     text-align: center;
-    font-size: 1.5em;
-    letter-spacing: 1px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    font-size: 1.3em;
 }
 
 /* شريط التنقل */
 nav {
     background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(8px);
     overflow: hidden;
     position: sticky;
     top: 0;
     z-index: 100;
-    transition: all 0.4s ease;
 }
 nav a {
     float: right;
-    display: block;
     color: white;
     text-align: center;
-    padding: 12px 15px;
+    padding: 10px 12px;
     text-decoration: none;
     font-weight: bold;
-    transition: all 0.4s ease;
     font-size: 14px;
 }
 nav a:hover {
-    background: linear-gradient(90deg, #000, #000);
-    color: #fff;
-    transform: scale(1.08);
-    border-radius: 6px;
-    box-shadow: 0 0 6px rgba(255,255,255,0.5);
+    background: #000;
+    border-radius: 4px;
 }
 
 /* المحتوى */
 main {
-    padding: 15px;
-    margin-bottom: 80px;
+    padding: 10px;
 }
 
 /* الكروت */
 .n, .news {
     border-radius: 10px;
-    padding: 15px;
+    padding: 12px;
     margin-bottom: 15px;
     background: white;
     box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.n:hover, .news:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.2);
 }
 
 /* الفوتر */
@@ -156,128 +132,102 @@ footer {
     background: rgba(0,0,0,0.9);
     color: white;
     text-align: center;
-    padding: 12px;
-    width: 100%;
+    padding: 10px;
     font-size: 13px;
-    box-shadow: 0 -2px 12px rgba(0,0,0,0.4);
-    position: static; /* إلغاء التثبيت */
-    margin-top: 20px; /* مسافة بسيطة عن المحتوى */
+    width: 100%;
 }
 
-/* للشاشات الصغيرة */
+/* الفيديوهات المرنة */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    border-radius: 8px;
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* موبايل */
 @media (max-width: 768px) {
     header {
-        font-size: 1.3em;
-        padding: 15px;
+        font-size: 1.1em;
     }
     nav a {
         float: none;
-        text-align: center;
-        padding: 10px;
-        font-size: 13px;
         display: block;
+        font-size: 13px;
+        padding: 8px;
+    }
+    .toggle-btn {
+        font-size: 0.9em;
+        padding: 7px 12px;
+    }
+    h2, h3 {
+        font-size: 1em;
+        line-height: 1.5;
     }
     main {
-        padding: 10px;
-    }
-    .n, .news {
-        padding: 12px;
+        padding: 8px;
     }
 }
-    </style>
+</style>
 </head>
 <body>
-
-  <main>
+<main>
 <section id="home">
     <button class="toggle-btn" onclick="toggleMode(this)">
-    <span>🌙</span> تغيير الوضع
+        <span>🌙</span> تغيير الوضع
     </button>
 </section>
-    
-            <h2>الاخبار</h2>
 
-            <br>
+<h2>الأخبار</h2>
 
+<div class="video-container">
+    <iframe src="https://www.youtube.com/embed/tcxYbc8goFE?si=w1thHqfrQk8ujEuF" frameborder="0" allowfullscreen></iframe>
+</div>
+<h3>القيم والمبادئ والأخلاق هي أسس التربية السليمة...</h3>
 
-           <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
-           <iframe src="https://www.youtube.com/embed/tcxYbc8goFE?si=w1thHqfrQk8ujEuF"
-           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-           frameborder="0" allowfullscreen>
-           </iframe>
-           </div>
+<div class="video-container">
+    <iframe src="https://www.youtube.com/embed/gFa_SM0lf_o?si=NC2tyYaikgG6lh27" frameborder="0" allowfullscreen></iframe>
+</div>
+<h3>اليوم كان جميلاً بمدرسة القيم النبيلة الثانوية...</h3>
 
-            <h3>القيم والمبادئ والأخلاق هي أسس #التربية السليمة ..لرفعة وطننا والحفاظ على مجتمعنا وأولادنا وشبابنا .</h3>
+<div class="video-container">
+    <iframe src="https://www.youtube.com/embed/DZWFns-zcG4?si=DrY1Nw8-Xcpf6Qub" frameborder="0" allowfullscreen></iframe>
+</div>
+<h3>#الفريد | ابن مصر دا مين قدوا...</h3>
 
-            <br>
+<div class="video-container">
+    <iframe src="https://www.youtube.com/embed/wDl9tleMJqs?si=G87pwyewZ0txR-P_" frameborder="0" allowfullscreen></iframe>
+</div>
+<h3>البنات أصحاب الفكرة والإخراج...</h3>
 
-           <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
-           <iframe src="https://www.youtube.com/embed/gFa_SM0lf_o?si=NC2tyYaikgG6lh27"
-           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-           frameborder="0" allowfullscreen>
-           </iframe>
-           </div>
-            <h3>اليوم كان جميلاً بمدرسة القيم النبيلة الثانوية  اختلطت فيه المشاعر ما بين دموع الوداع للصف الثاني وسعادة انتهاء الإمتحانات للصف الأول 
-كانت مشاعر ومشاهد لا توصف
-أود أن أشكر جميع الطلبة والطالبات قدمتم عام دراسي ولا أجمل من الإلتزام السلوكي والأخلاقي ، ويعلم الله أننا اتقيناه حق تقاته قدر استطاعتنا في تقديم كل ما في وسعنا لخدمتكم، فأنا الآن سعيد جداً بأنني مرتاح البال أن قد أدينا الأمانة كما ينبغي،  وكنتم كأبنائي وبناتي فقد احتوينا الجميع وفراقكم ليس صعب عليكم فقط بل صعب علينا أيضاً فقد كنتم خير خلف لخير سلف وهي دفعة الصف الثالث (دفعة٢٠٢٥) ربنا يوفقهم.
-والآن وقد احتفلنا بصعودكم لدفعة الثانوية ٢٠٢٦ أدعوا الله العلي القدير أن يجبر خاطر أهاليكم ويسعدهم بتفوقكم في الشهادة الثانوية، وأن يكتب لكم الخير كله عاجله وآجله ويسعدكم في حياتكم المستقبلية اللهم آمين.</h3>
+<div class="video-container">
+    <iframe src="https://www.youtube.com/embed/orLJsly6WUY?si=VTpgMXfoFqA__lnt" frameborder="0" allowfullscreen></iframe>
+</div>
+<h3>تنبعث الطاقة الايجابية...</h3>
 
-            <br>
+</main>
 
-            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
-           <iframe src="https://www.youtube.com/embed/DZWFns-zcG4?si=DrY1Nw8-Xcpf6Qub"
-           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-           frameborder="0" allowfullscreen>
-           </iframe>
-           </div>
-            <h3>#الفريد | ابن مصر دا مين قدوا .. هات معاك علمك علي أنت بأيدك هتخلى بلدك فوق في السما وهتتباها بيها</h3>
-
-            <br>
-
-            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
-           <iframe src="https://www.youtube.com/embed/wDl9tleMJqs?si=G87pwyewZ0txR-P_"
-           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-           frameborder="0" allowfullscreen>
-           </iframe>
-           </div>
-            <h3>البنات أصحاب الفكرة والإخراج لكن الولاد برضو يكسبوا😂</h3>
-
-            <br>
-
-            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
-           <iframe src="https://www.youtube.com/embed/orLJsly6WUY?si=VTpgMXfoFqA__lnt"
-           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-           frameborder="0" allowfullscreen>
-           </iframe>
-           </div>
-            <h3>تنبعث الطاقة الايجابية.تسلم ايدك يا دكتورة رغد.بتمنى تكونوا ضحكتوا من قلبكم.عايز اقول لكم</h3>
-
-            <br>
-            </main>
-            
-            
-            
 <footer>
-        <p>  جميع الحقوق محفوظة 2025 @ تم الصنع بواسطة &copy; <a href="https://the8website.github.io/mo_yaser/"> MO_YASER </a>
-        </p>
+    <p>جميع الحقوق محفوظة 2025 @ تم الصنع بواسطة &copy; <a href="https://the8website.github.io/mo_yaser/" style="color: #4da3ff;">MO_YASER</a></p>
 </footer>
+
 <script>
 function toggleMode(btn) {
     document.body.classList.toggle("dark-mode");
-    
-    // تغيير الأيقونة
     const icon = btn.querySelector("span");
-    if (document.body.classList.contains("dark-mode")) {
-        icon.textContent = "☀️";
-    } else {
-        icon.textContent = "🌙";
-    }
-
-    // إضافة حركة دوران
+    icon.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
     btn.classList.add("clicked");
     setTimeout(() => btn.classList.remove("clicked"), 500);
 }
-
 </script>
 
 </body>
