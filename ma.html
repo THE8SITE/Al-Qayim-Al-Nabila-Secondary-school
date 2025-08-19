@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>حاسبة</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(145deg, #303030, #333333);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      transition: background 0.4s ease;
+    }
+
+    /* الوضع الفاتح */
+    body.light-mode {
+      background: linear-gradient(145deg, #f5f5f5, #e0e0e0);
+    }
+
+    /* زر التبديل فوق الصفحة */
+    .toggle-mode {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      padding: 10px 14px;
+      font-size: 20px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      background: #00bcd4;
+      color: #000;
+      font-weight: bold;
+      transition: transform 0.5s ease, background 0.3s ease, color 0.3s ease;
+      z-index: 999;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .toggle-mode:hover {
+      background: #0097a7;
+      color: #fff;
+      transform: rotate(20deg) scale(1.1);
+    }
+
+    .calculator {
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 20px;
+      width: 100%;
+      max-width: 360px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    /* الحاسبة في الوضع الفاتح */
+    body.light-mode .calculator {
+      background: rgba(0, 0, 0, 0.05);
+      color: #000;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .display {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 16px;
+      font-size: 28px;
+      color: #ffffff;
+      text-align: right;
+      margin-bottom: 20px;
+      min-height: 60px;
+      overflow: hidden;
+      word-wrap: break-word;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    body.light-mode .display {
+      background: rgba(0, 0, 0, 0.05);
+      color: #000;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    button {
+      padding: 18px;
+      border: none;
+      border-radius: 15px;
+      font-size: 18px;
+      background: rgba(255, 255, 255, 0.07);
+      color: #ffffff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    body.light-mode button {
+      background: rgba(0, 0, 0, 0.07);
+      color: #000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    button:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: scale(1.05);
+    }
+
+    body.light-mode button:hover {
+      background: rgba(0, 0, 0, 0.15);
+    }
+
+    .operator {
+      color: #00bcd4;
+      font-weight: bold;
+    }
+
+    .equal {
+      background: #00bcd4;
+      color: #000;
+      font-weight: bold;
+    }
+
+    .equal:hover {
+      background: #00acc1;
+    }
+
+    .clear {
+      color: #ff5252;
+    }
+
+    .clear:hover {
+      background: rgba(255, 82, 82, 0.2);
+    }
+
+    @media (max-width: 400px) {
+      .display {
+        font-size: 24px;
+        padding: 14px;
+      }
+
+      button {
+        padding: 16px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- زر التبديل فوق الصفحة -->
+  <button class="toggle-mode" id="modeBtn" onclick="toggleMode()">🌙</button>
+
+  <div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+      <button class="clear" onclick="clearDisplay()">C</button>
+      <button onclick="appendValue('(')">(</button>
+      <button onclick="appendValue(')')">)</button>
+      <button onclick="appendValue('/')">÷</button>
+
+      <button onclick="appendValue('7')">7</button>
+      <button onclick="appendValue('8')">8</button>
+      <button onclick="appendValue('9')">9</button>
+      <button onclick="appendValue('*')">×</button>
+
+      <button onclick="appendValue('4')">4</button>
+      <button onclick="appendValue('5')">5</button>
+      <button onclick="appendValue('6')">6</button>
+      <button onclick="appendValue('-')">−</button>
+
+      <button onclick="appendValue('1')">1</button>
+      <button onclick="appendValue('2')">2</button>
+      <button onclick="appendValue('3')">3</button>
+      <button onclick="appendValue('+')">+</button>
+
+      <button onclick="appendValue('0')">0</button>
+      <button onclick="appendValue('.')">.</button>
+      <button onclick="deleteLast()">⌫</button>
+      <button class="equal" onclick="calculate()">=</button>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById('display');
+    const modeBtn = document.getElementById('modeBtn');
+
+    function appendValue(value) {
+      if (display.innerText === '0' || display.innerText === 'Error') {
+        display.innerText = value;
+      } else {
+        display.innerText += value;
+      }
+    }
+
+    function clearDisplay() {
+      display.innerText = '0';
+    }
+
+    function deleteLast() {
+      if (display.innerText.length > 1) {
+        display.innerText = display.innerText.slice(0, -1);
+      } else {
+        display.innerText = '0';
+      }
+    }
+
+    function calculate() {
+      try {
+        let expression = display.innerText.replace(/÷/g, '/').replace(/×/g, '*');
+        let result = Function('"use strict"; return (' + expression + ')')();
+        display.innerText = Number.isFinite(result) ? parseFloat(result.toFixed(10)) : "Error";
+      } catch (e) {
+        display.innerText = 'Error';
+      }
+    }
+
+    function toggleMode() {
+      document.body.classList.toggle("light-mode");
+
+      // حركة عند التبديل
+      modeBtn.style.transform = "rotate(180deg)";
+      setTimeout(() => {
+        modeBtn.style.transform = "rotate(0deg)";
+      }, 500);
+
+      if (document.body.classList.contains("light-mode")) {
+        modeBtn.innerText = "☀️";
+      } else {
+        modeBtn.innerText = "🌙";
+      }
+    }
+  </script>
+</body>
+</html>
