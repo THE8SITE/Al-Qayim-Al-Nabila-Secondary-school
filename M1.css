@@ -6,7 +6,6 @@ body {
     transition: background 0.5s, color 0.5s;
 }
 
-/* الوضع الليلي */
 body.dark-mode {
     background: #121212;
     color: #f5f5f5;
@@ -23,7 +22,6 @@ body.dark-mode img {
     filter: brightness(0.9);
 }
 
-/* زر الوضع الليلي */
 .toggle-btn {
     background: linear-gradient(45deg, #ff9800, #ff5722);
     border: none;
@@ -48,7 +46,6 @@ body.dark-mode .toggle-btn {
     transform: rotate(360deg);
 }
 
-/* الهيدر */
 header {
     background: linear-gradient(90deg, #000, #000);
     color: white;
@@ -57,13 +54,11 @@ header {
     font-size: 1.3em;
 }
 
-/* المحتوى */
 main {
     padding: 15px;
     min-height: calc(100vh - 60px);
 }
 
-/* الكروت */
 .news {
     border-radius: 10px;
     padding: 12px;
@@ -77,7 +72,6 @@ main {
     border: none;
 }
 
-/* الفوتر */
 footer {
     background: rgba(0,0,0,0.9);
     color: white;
@@ -86,7 +80,6 @@ footer {
     font-size: 13px;
 }
 
-/* للموبايل */
 @media (max-width: 768px) {
     .news iframe {
         height: 200px;
