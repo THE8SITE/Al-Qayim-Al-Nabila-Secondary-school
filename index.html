@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مدرسة القيم النبيلة الثانوية</title>
+<title>الصفحة الرئيسية مدرسة القيم النبيلة الثانوية</title>
 <meta name="description" content="مدرسة القيم النبيلة الثانوية - أخبار، صور، أنشطة والمزيد.">
 <link href="school.jpg" type="image/x-icon" rel="icon">
-<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="school.css">
 </head>
 
 <body>
@@ -171,7 +171,27 @@ function toggleMode(btn) {
     btn.classList.add("clicked");
     setTimeout(() => btn.classList.remove("clicked"), 500);
 }
-</script>
 
+// إشعار يظهر مرة واحدة في اليوم مع انيميشن
+function closeNotification() {
+  const notification = document.getElementById("notification");
+  notification.classList.remove("show");
+  setTimeout(() => notification.style.display = "none", 600);
+
+  const today = new Date().toISOString().split('T')[0];
+  localStorage.setItem("lastSeenNotification", today);
+}
+
+window.onload = function () {
+  const today = new Date().toISOString().split('T')[0];
+  const lastSeen = localStorage.getItem("lastSeenNotification");
+
+  if (lastSeen !== today) {
+    const notification = document.getElementById("notification");
+    notification.style.display = "flex";
+    setTimeout(() => notification.classList.add("show"), 100);
+  }
+}
+</script>
 </body>
 </html>

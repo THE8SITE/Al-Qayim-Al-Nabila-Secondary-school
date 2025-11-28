@@ -1,3 +1,4 @@
+/* أساسي */
     * {
       margin: 0; padding: 0; box-sizing: border-box;
     }
@@ -15,6 +16,7 @@
       color: #eee;
     }
 
+    /* شعار */
     .logo {
       width: 150px;
       height: 150px;
@@ -29,6 +31,7 @@
       transform: rotate(10deg) scale(1.05);
     }
 
+    /* العنوان */
     h1 {
       text-align: center;
       font-weight: 900;
@@ -38,6 +41,7 @@
       user-select: none;
     }
 
+    /* القائمة */
     nav.menu {
       display: flex;
       justify-content: center;
@@ -62,6 +66,7 @@
       color: #fff;
     }
 
+    /* فئات ضمن تفاصيل */
     details > summary {
       cursor: pointer;
       padding: 10px 25px;
@@ -100,6 +105,7 @@
       color: white;
     }
 
+    /* شبكة الكتب */
     .books {
       display: grid;
       grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
@@ -144,6 +150,7 @@
       flex-grow: 1;
     }
 
+    /* حركة زرار الداكن */
     .toggle-btn {
       position: fixed;
       top: 25px;
@@ -182,6 +189,7 @@
       background: linear-gradient(45deg, #0066ff, #0044ff);
     }
 
+    /* الفوتر */
     footer {
       text-align: center;
       padding: 15px 10px;
@@ -193,6 +201,7 @@
       margin-top: auto;
     }
 
+    /* استجابة */
     @media (max-width: 650px) {
       nav.menu {
         flex-direction: column;
@@ -208,6 +217,7 @@
       }
     }
 
+    /* حركة نبض للزر */
     @keyframes pulse {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.1); }

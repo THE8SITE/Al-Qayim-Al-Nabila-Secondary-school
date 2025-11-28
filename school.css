@@ -140,6 +140,47 @@ main {
     box-shadow: 0 8px 18px rgba(0,0,0,0.2);
 }
 
+
+/* شريط الإشعارات */
+    .notification {
+      background: #ffcc00;
+      color: #000;
+      text-align: center;
+      padding: 15px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      font-size: 20px;
+      font-weight: bold;
+      z-index: 9999;
+      display: none; /* مخفي مبدئياً */
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .notification button {
+      background: #000;
+      color: #fff;
+      border: none;
+      padding: 6px 14px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .notification button:hover {
+      background: #444;
+    }
+
+    /* مساحة عشان المحتوى ما يتغطاش */
+    .content {
+      margin-top: 70px;
+      padding: 20px;
+    }
+
 /* الفوتر */
 footer {
     background: rgba(0,0,0,0.9);
