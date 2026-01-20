@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>هيئة التدريس</title>
+<link href="school.jpg" type="image/x-icon" rel="icon" />
+<link rel="stylesheet" href="H.css">
+</head>
+
+<body>
+<main>
+    <section id="home">
+        <button class="toggle-btn" onclick="toggleMode(this)">
+            <span>🌙</span> تغيير الوضع
+        </button>
+    </section>
+
+    <section id="about">
+        <h2>هيئة التدريس</h2>
+        <div class="news">
+            <div><img src="https://via.placeholder.com/50"><h3>هاني عيد محمد</h3></div>
+            <div><img src="https://via.placeholder.com/50"><h3>اسامه مليحي</h3></div>
+            <div><img src="https://via.placeholder.com/50"><h3>عبدالرحمن حمدي عيسي</h3></div>
+            <div><img src="https://via.placeholder.com/50"><h3>علاء محمود</h3></div>
+            <div><img src="https://via.placeholder.com/50"><h3>حامد علي</h3></div>
+            <div><img src="https://via.placeholder.com/50"><h3>احمد عبدالحميد</h3></div>
+            <div><img src="https://via.placeholder.com/50"><h3>دسوقي دسوقي</h3></div>
+            <div><img src="https://via.placeholder.com/50"><h3>احمد فوزي</h3></div>
+            <div><img src="https://via.placeholder.com/50"><h3>بدري</h3></div>
+            <div><img src="https://via.placeholder.com/50"><h3>عاطف ربيع</h3></div>
+            <div><img src="https://via.placeholder.com/50"><h3>مرعي سيد</h3></div>
+            <div><img src="https://via.placeholder.com/50"><h3>محمد انور</h3></div>
+            <div><img src="https://via.placeholder.com/50"><h3>اسراء محمد</h3></div>
+            <div><img src="https://via.placeholder.com/50"><h3>ريهام</h3></div>
+            <div><img src="https://via.placeholder.com/50"><h3>امينة محمد</h3></div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    جميع الحقوق محفوظة 2025 &copy; 
+    <a href="https://the8site.github.io/MOHAMED-YASER/" style="color:#ff9800">MO_YASER</a>
+</footer>
+
+<script>
+function toggleMode(btn) {
+    document.body.classList.toggle("dark-mode");
+    const icon = btn.querySelector("span");
+    icon.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+}
+function toggleMenu() {
+    document.getElementById("nav-links").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
