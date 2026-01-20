@@ -1,84 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>المراجعات الصف الاول مدرسة القيم النبيلة الثانوية</title>
-<link href="school.jpg" type="image/x-icon" rel="icon" />
-<link rel="stylesheet" href="M2.css">
-</head>
-<body>
-
-<main>
-    <button class="toggle-btn" onclick="toggleMode(this)">
-        <span>🌙</span> تغيير الوضع
-    </button>
-    <h1>الصف الثاني</h1>
-    <br>
-
-    <section>
-        <h2>لغة عربية</h2>
-        <div class="news">
-            <iframe src=""frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p>تاريخ النشر: 20 مايو 2025</p>
-    </section>
-
-    <section>
-        <h2>لغة انجليزية</h2>
-        <div class="news">
-            <iframe src=""frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p>تاريخ النشر: 20 مايو 2025</p>
-    </section>
-
-    <section>
-        <h2>رياضيات</h2>
-        <div class="news">
-            <iframe src=""frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p>تاريخ النشر: 20 مايو 2025</p>
-    </section>
-
-    <section>
-        <h2>علم نفس</h2>
-        <div class="news">
-            <iframe src=""frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p>تاريخ النشر: 20 مايو 2025</p>
-    </section>
-
-    <section>
-        <h2>فزياء</h2>
-        <div class="news">
-            <iframe src=""frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p>تاريخ النشر: 20 مايو 2025</p>
-    </section>
-
-    <section>
-        <h2>تاريخ</h2>
-        <div class="news">
-            <iframe src=""frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p>تاريخ النشر: 20 مايو 2025</p>
-    </section>
-</main>
-
-<footer>
-    جميع الحقوق محفوظة 2025 @ تم الصنع بواسطة 
-    &copy; <a href="https://the8website.github.io/mo_yaser/" style="color: #ff9800;">MO_YASER</a>
-</footer>
-
-<script>
-function toggleMode(btn) {
-    document.body.classList.toggle("dark-mode");
-    const icon = btn.querySelector("span");
-    icon.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
-    btn.classList.add("clicked");
-    setTimeout(() => btn.classList.remove("clicked"), 500);
-}
-</script>
-
-</body>
-</html>
